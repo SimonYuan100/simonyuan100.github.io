@@ -22,6 +22,12 @@ author: 'simon'
 - TASK_ZOMBIE 僵死状态
 - EXIT_DEAD 僵死撤销状态
 
+### 标示一个进程
+
+- 进程标示符 process ID（PID）
+- 有最大上限，系统管理员可以通过 /proc/sys/kernel/pid_max 减小最大上限
+- 32x 32767， 64x 4194303
+
 ### POSIX
 
 可移植操作系统接口（英语：Portable Operating System Interface，缩写为 POSIX）是 IEEE 为要在各种 UNIX 操作系统上运行软件，而定义 API 的一系列互相关联的标准的总称，其正式称呼为 IEEE Std 1003，而国际标准名称为 ISO/IEC 9945。
