@@ -24,3 +24,13 @@ also called symbolic link, which has a path pointing to the link.
 # create p2 based on p1
 ln -s P1 P2
 ```
+
+### npm link
+
+Symlink a package folder
+
+> npm link [package-spec]
+> alias: ln
+
+- npm link in a package folder with no arguments will create a symlink in the global folder {prefix}/lib/node_modules/package that links to the package where the npm link command was executed.
+- npm link package-name will create a symbolic link from globally-installed package-name to node_modules/ of the current folder.
