@@ -3,6 +3,7 @@
   "scripts": {
     "dev": "node scripts/watch.js & \n next dev",
     "build": "next build",
+    "static": "next build && next export",
     "start": "next start"
   },
   "dependencies": {
