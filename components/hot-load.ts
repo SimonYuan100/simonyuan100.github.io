@@ -1,8 +1,13 @@
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 
-let instance = {
-  ws: null,
+interface Instance {
+  ws: WebSocket,
+  timer: any
+}
+
+let instance: Instance = {
+  ws: null as any,
   timer: null,
 }
 function getInstance() {
@@ -12,7 +17,7 @@ function getInstance() {
   return instance
 }
 
-function _HotLoad({ setPost, params }) {
+function _HotLoad({ setPost, params }: any) {
   const { asPath } = useRouter()
   useEffect(() => {
     const instance = getInstance()
@@ -20,7 +25,7 @@ function _HotLoad({ setPost, params }) {
       const data = JSON.parse(res.data)
       if (data.event === 'markdown-changed') {
         if (data.path === asPath) {
-          const post = await getPreviewData(params)
+          const post = await getPreviewData(params.id)
           setPost(post)
         }
       }
@@ -32,7 +37,7 @@ function _HotLoad({ setPost, params }) {
   return null
 }
 
-export function getPreviewData(params) {
+export function getPreviewData(id: string) {
   if (instance.timer) {
     clearTimeout(instance.timer)
   }
@@ -43,14 +48,14 @@ export function getPreviewData(params) {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(params),
+        body: JSON.stringify(id),
       })
       resolve(res.json())
     }, 200)
   })
 }
 
-let core = ({ setPost, params }) => null
+let core = ({ setPost, params }: any) => null
 
 if (process.env.NODE_ENV === 'development') {
   console.log('development hot load')

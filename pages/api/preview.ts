@@ -1,6 +1,7 @@
 import { getPostData } from '../../lib/posts'
 
-export default async function handler(req, res) {
+import { NextApiRequest, NextApiResponse } from 'next'
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (process.env.NODE_ENV === 'development') {
     const params = req.body
     const post = await getPostData(params.id)
