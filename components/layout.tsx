@@ -12,7 +12,7 @@ export default function Layout({ children, home }: {
   home?: boolean
 }) {
   return (
-    <div className={styles.container}>
+    <div className={styles.container + ' container'} >
       <Head>
         <link rel="icon" href="/favicon.ico" />
         <meta
@@ -63,7 +63,7 @@ export default function Layout({ children, home }: {
           </>
         )}
       </header>
-      <main>{children}</main>
+      <main >{children}</main>
       {!home && (
         <div className={styles.backToHome}>
           <Link href="/">← Back to home</Link>

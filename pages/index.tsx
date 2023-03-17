@@ -4,7 +4,7 @@ import utilStyles from '../styles/utils.module.css'
 import { getSortedPostsData } from '../lib/posts'
 import Link from 'next/link'
 import { GetStaticProps } from 'next';
-
+import BackToTop from '../components/back-to-top'
 interface postData {
   date: string,
   id: string,
@@ -21,7 +21,7 @@ export default function Home({ allPostsData }: {
         <title>{siteTitle}</title>
       </Head>
       <section className={utilStyles.headingMd}>
-        <p>Soft Engineer</p>
+        <p className="underline">Soft Engineer</p>
       </section>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <h2 className={utilStyles.headingLg}>Blog</h2>
@@ -36,7 +36,9 @@ export default function Home({ allPostsData }: {
             </li>
           ))}
         </ul>
+        <BackToTop/>
       </section>
+      
     </Layout>
   )
 }
