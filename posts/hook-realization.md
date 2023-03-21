@@ -2,6 +2,8 @@
 title: 'hook realization'
 date: '2023-03-09'
 author: 'simon'
+description: 'React Hooks是一组用于自动化构建和渲染React应用程序的JavaScript函数。它们是在16版本中引入的，并且已经成为了开发React项目的标准方法之一'
+tags: ['react', 'hook']
 ---
 
 ### here we realize the react hook
