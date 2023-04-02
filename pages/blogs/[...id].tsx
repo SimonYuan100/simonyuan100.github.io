@@ -30,7 +30,10 @@ export const getStaticPaths: GetStaticPaths = async () => {
   }
 }
 
-export const getStaticProps: GetStaticProps = async ( { params } ) => {
+type Params = {
+  [param: string]: any
+}
+export const getStaticProps: GetStaticProps = async ( { params }: Params ) => {
   // Fetch necessary data for the blog post using params.id
   console.log('params:', params)
   const slug = params.id.join('/')

@@ -1,6 +1,6 @@
 import { visitParents } from 'unist-util-visit-parents'
 import { visit } from 'unist-util-visit'
-import { parseUrl } from "query-string";
+import queryString from "query-string";
 
 export function remarkImage(options: any) {
     return function transformer(tree: any, file: any) {
@@ -57,7 +57,7 @@ export function remarkCodepen(options: any) {
             const { value } = node;
             const isCopePen = value.match(/\{\{codepen:\/\/(.+?)\}\}/)
             if (isCopePen) {
-                const params = parseUrl(isCopePen[1])
+                const params = queryString.parseUrl(isCopePen[1])
 
                 const [penUser, penId] = params.url.split('/')
                 const optison = {

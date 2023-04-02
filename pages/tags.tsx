@@ -45,7 +45,7 @@ const Tags = ({ tags, tagsByFirstLetter }: any) => {
 
 export default Tags
 
-export async function getStaticProps({ params }: Params) {
+export async function getStaticProps({ params }: any) {
     const tags = getAllTags()
     const _tagsByFirstLetter: any = {}
 
