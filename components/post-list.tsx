@@ -41,7 +41,7 @@ export default function PostList({ posts }: any) {
                                     </div>
                                 </div>
                                 <div className="text-base font-light leading-6 ">
-                                    <Link href={{ pathname: `/posts/${post.id}` }}>
+                                    <Link href={{ pathname: post.path }}>
                                         <span className="text-primary-500 hover:text-primary-600 text-blue-500 hover:text-blue-900 dark:hover:text-blue-500 dark:hover:underline">Read more →</span>
                                     </Link>
                                 </div>

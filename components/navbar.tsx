@@ -8,8 +8,8 @@ import { ThemeSwitch } from "./theme-switch";
 const links = [
   {
       title: '博客',
-      pathname: '/posts',
-      route: '/posts/[...id]'
+      pathname: '/blogs',
+      route: '/blogs/[...id]'
   },
   {
       title: '标签',

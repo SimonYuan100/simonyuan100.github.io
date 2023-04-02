@@ -1,8 +1,5 @@
-import Head from 'next/head'
-import Layout, { siteTitle } from '../components/layout'
-import utilStyles from '../styles/utils.module.css'
-import { getSortedPostsData } from '../lib/posts'
-import Link from 'next/link'
+import Layout from '../components/layout'
+import { getAllFrontMatterByType } from '../lib/posts'
 import { GetStaticProps } from 'next';
 import BackToTop from '../components/back-to-top'
 import Banner from '../components/banner'
@@ -18,10 +15,7 @@ export default function Home({ allPostsData }: {
   allPostsData: postData[]
 }) {
   return (
-    <Layout home>
-      <Head>
-        <title>{siteTitle}</title>
-      </Head>
+    <Layout>
       <Banner title='上善若水' abstract='水善利万物而不争，处众人之所恶，故几于道。' />
       <main className='mx-5 md:mx-20'>
         <PostList posts={allPostsData} />
@@ -33,7 +27,7 @@ export default function Home({ allPostsData }: {
 }
 
 export const getStaticProps: GetStaticProps = () => {
-  const allPostsData = getSortedPostsData()
+  const allPostsData = getAllFrontMatterByType('all')
   return {
     props: {
       allPostsData,
